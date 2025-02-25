@@ -37,11 +37,15 @@ export function About() {
             className="relative"
           >
             <div className="aspect-square relative rounded-2xl overflow-hidden border-4 border-background shadow-xl">
-              {/* Replace with your image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 animate-gradient-x" />
-              <div className="absolute inset-0 flex items-center justify-center text-foreground/50">
-                Your Photo Here
-              </div>
+              {/* Your profile image */}
+              <Image 
+                src="/myPhoto.png" 
+                alt="Kshitij Ghode" 
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 animate-gradient-x mix-blend-overlay" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent/10 rounded-full" />
