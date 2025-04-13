@@ -61,14 +61,10 @@ export function About() {
               I'm <span className="text-primary">Kshitij Ghode</span>, a Software Engineer
             </h3>
             <p className="text-foreground/80 mb-6">
-              I'm a dedicated and skilled Software Engineer with a proven track record of developing robust web
-              applications. Committed to staying updated with the latest technologies and industry best practices to
-              drive continuous improvement and deliver innovative solutions.
+              I'm a Software Engineer with experience in developing and maintaining backend microservices, implementing API gateways, and orchestrating workflows using tools like Java, Spring Boot, and Kafka.
             </p>
             <p className="text-foreground/80 mb-6">
-              Ready to contribute technical excellence and drive success in a dynamic software engineering role.
-              My experience includes developing microservices, implementing application performance monitoring,
-              and deploying client server environments.
+              I have hands-on experience with DevOps practices, including containerization with Docker, CI/CD with GitLab, and monitoring with Signoz. I'm also familiar with frontend technologies like Next.js and React, and have explored Web3 concepts.
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="bg-background rounded-lg px-4 py-2 shadow-sm">
@@ -78,7 +74,7 @@ export function About() {
                 <span className="text-primary font-bold">B.Tech</span> NIT Trichy
               </div>
               <div className="bg-background rounded-lg px-4 py-2 shadow-sm">
-                <span className="text-primary font-bold">Java</span> Spring Boot
+                <span className="text-primary font-bold">Full Stack</span> Expertise
               </div>
             </div>
             <a

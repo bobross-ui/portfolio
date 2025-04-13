@@ -14,7 +14,7 @@ const skills = [
   {
     category: "Backend Development",
     icon: <Server className="w-6 h-6" />,
-    skills: ["Java", "Spring Boot", "REST APIs", "Apache Kafka"],
+    skills: ["Java", "Spring Boot", "Microservices", "Apache Kafka", "REST APIs"],
   },
   {
     category: "Database",
@@ -24,12 +24,17 @@ const skills = [
   {
     category: "DevOps & Tools",
     icon: <Layers className="w-6 h-6" />,
-    skills: ["Docker", "GitLab", "IceScrum", "RedMine"],
+    skills: ["Docker", "GitLab", "YAML", "Nginx", "Git", "Signoz APM", "Agile (IceScrum)"],
   },
   {
     category: "Frontend",
     icon: <Layout className="w-6 h-6" />,
-    skills: ["HTML"],
+    skills: ["Next.js", "React", "HTML", "JavaScript"],
+  },
+  {
+    category: "Web3 (Familiarity)",
+    icon: <Code className="w-6 h-6" />,
+    skills: ["Solidity", "Ethers.js", "Web3.js", "Smart Contracts"],
   },
 ];
 

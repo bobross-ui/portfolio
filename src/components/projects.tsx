@@ -37,12 +37,53 @@ const projects = [
     // githubUrl: "#",
     category: "DevOps",
   },
+  {
+    title: "Spotify to YouTube Playlist Transfer",
+    description:
+      "Automated playlist migration using Python, Spotify API, and YouTube API.",
+    image: "/placeholder.jpg",
+    tags: ["Python", "Spotify API", "YouTube API"],
+    // liveUrl: "#",
+    // githubUrl: "#",
+    category: "Personal Project",
+  },
+  {
+    title: "Email-AI Replier Chrome Extension",
+    description:
+      "AI-powered Gmail auto-reply tool using Gemini LLM API and JavaScript.",
+    image: "/placeholder.jpg",
+    tags: ["JavaScript", "Chrome Extension", "Gemini API"],
+    // liveUrl: "#",
+    // githubUrl: "#",
+    category: "Personal Project",
+  },
+  {
+    title: "Ethereum Whale Tracker (Web3)",
+    description:
+      "Real-time Ethereum large transaction monitoring using Ethers.js, Next.js.",
+    image: "/placeholder.jpg",
+    tags: ["Web3", "Ethers.js", "Next.js"],
+    // liveUrl: "#",
+    // githubUrl: "#",
+    category: "Personal Project",
+  },
+  {
+    title: "Pump.fun Clone (Web3 Concept)",
+    description:
+      "Ethereum token launch platform prototype (Solidity, Ethers.js)",
+    image: "/placeholder.jpg",
+    tags: ["Web3", "Solidity", "Ethers.js"],
+    // liveUrl: "#",
+    // githubUrl: "#",
+    category: "Personal Project",
+  },
 ];
 
 const categories = [
   "All",
   "Backend Development",
   "DevOps",
+  "Personal Project",
 ];
 
 export function Projects() {

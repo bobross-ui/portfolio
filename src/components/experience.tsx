@@ -10,7 +10,7 @@ const experiences = [
     company: "Profinch Solutions",
     period: "Sep 2021 - Apr 2024",
     description:
-      "Developed the backend for Atumverse Studio Microservice, a low-code application for banks to create web-screens for banking websites. Implemented custom request and response models to standardize data exchange across the service layer. Implemented Signoz APM in multiple microservices and created dashboards based on business requirements. Deployed environment software's Camunda, Solr, Postgresql and nginx using yaml.",
+      "Developed and maintained core backend microservices (Java, Spring Boot) for the Atumverse Studio low-code banking platform. Implemented new business process definitions (e.g. user/agent onboarding) within the central workflow-ms for platform event orchestration. Enhanced the partner-system-gateway-ms (PSG) by configuring routing rules and developing request/response transformation logic for inter-service communication. Designed standardized REST API models ensuring robust communication and seamless frontend integration across services. Implemented Signoz APM for proactive monitoring across microservices, identifying and resolving performance bottlenecks. Automated deployment pipelines (using YAML) for microservices and dependencies (Camunda, Solr, PostgreSQL, Nginx), improving consistency and reducing downtime. Containerized and deployed microservices using Docker for scalable and secure service delivery. Conducted rigorous testing to validate functionality, integration points, and critical workflow scenarios.",
     type: "work",
   },
   {
