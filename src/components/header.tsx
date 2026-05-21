@@ -1,98 +1,96 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
-import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
+  { label: "about", href: "#about" },
+  { label: "work", href: "#experience" },
+  { label: "projects", href: "#projects" },
+  { label: "stack", href: "#skills" },
+  { label: "say hi", href: "#contact" },
 ];
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-md py-2"
-          : "bg-transparent py-4"
-      )}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
-        >
-          Kshitij Ghode
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-foreground/80 hover:text-foreground transition-colors relative group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-          <ThemeToggle />
-        </nav>
-
-        {/* Mobile Navigation Toggle */}
-        <div className="md:hidden flex items-center">
-          <ThemeToggle className="mr-2" />
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-foreground"
-            aria-label="Toggle Menu"
+    <>
+      <header className="sticky top-0 z-[100] flex h-11 items-center border-b-2 border-ink bg-paper font-mono text-[11px] uppercase tracking-[0.14em] text-ink">
+        <div className="wrap flex w-full items-center gap-4 md:gap-7">
+          <div
+            className="bg-ink px-3 py-1.5 font-semibold text-paper shadow-riso-pink-xs"
+            style={{ transform: "rotate(-1.5deg)" }}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-sm z-40 md:hidden transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <div className="flex flex-col items-center justify-center h-full space-y-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="text-xl font-medium hover:text-primary transition-colors"
+            K · G
+          </div>
+          <nav className="ml-2 hidden gap-[22px] md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-ink transition-colors hover:text-pink"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <div className="ml-auto flex items-center gap-3 md:gap-4">
+            <span className="relative text-pink">
+              <span className="mr-1.5 inline-block animate-riso-pulse">●</span>
+              Open to work
+            </span>
+            <span className="hidden sm:inline">Mumbai · UTC+05:30</span>
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+              className="-mr-1 p-1 text-ink md:hidden"
             >
-              {item.name}
-            </Link>
-          ))}
+              <Menu size={20} />
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {open ? (
+        <div
+          className="fixed inset-0 z-[200] flex flex-col bg-paper md:hidden"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex h-11 items-center border-b-2 border-ink">
+            <div className="wrap flex w-full items-center justify-between">
+              <div
+                className="bg-ink px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-paper shadow-riso-pink-xs"
+                style={{ transform: "rotate(-1.5deg)" }}
+              >
+                K · G
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="p-1 text-ink"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+          <nav className="flex flex-1 flex-col items-start gap-6 px-10 py-12">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="font-display text-[48px] font-bold uppercase leading-[0.9] tracking-[-0.025em] text-ink"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      ) : null}
+    </>
   );
-} 
+}

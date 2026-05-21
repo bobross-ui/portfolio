@@ -1,22 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Kshitij",
-  description: "Personal portfolio showcasing my projects and skills",
-  keywords: ["portfolio", "developer", "web development", "frontend", "backend"],
+  title: "Kshitij Ghode — Riso Press",
+  description:
+    "Backend & distributed systems engineer based in Mumbai. Riso edition portfolio — 2-color + grain.",
+  keywords: [
+    "Kshitij Ghode",
+    "backend engineer",
+    "distributed systems",
+    "Spring Boot",
+    "Node.js",
+    "TypeScript",
+    "portfolio",
+  ],
 };
 
 export default function RootLayout({
@@ -25,18 +37,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+        {children}
       </body>
     </html>
   );

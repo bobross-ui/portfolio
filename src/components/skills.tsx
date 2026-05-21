@@ -1,114 +1,158 @@
-"use client";
+import { SectionHead } from "./section-head";
 
-import { motion } from "framer-motion";
-import {
-  Code,
-  Database,
-  Layout,
-  Smartphone,
-  Server,
-  Layers,
-} from "lucide-react";
+interface SkillItem {
+  name: string;
+  years?: string;
+}
 
-const skills = [
+interface SkillColumn {
+  heading: string;
+  items: SkillItem[];
+}
+
+const columns: SkillColumn[] = [
   {
-    category: "Backend Development",
-    icon: <Server className="w-6 h-6" />,
-    skills: ["Java", "Spring Boot", "Microservices", "Apache Kafka", "REST APIs"],
+    heading: "Backend",
+    items: [
+      { name: "Java", years: "4y" },
+      { name: "Spring Boot", years: "3y" },
+      { name: "Spring Security", years: "3y" },
+      { name: "Spring Data JPA", years: "3y" },
+      { name: "Microservices", years: "3y" },
+      { name: "Apache Kafka", years: "2y" },
+    ],
   },
   {
-    category: "Database",
-    icon: <Database className="w-6 h-6" />,
-    skills: ["PostgreSQL", "OracleDB"],
+    heading: "Frontend / Mobile",
+    items: [
+      { name: "TypeScript", years: "3y" },
+      { name: "Node.js", years: "3y" },
+      { name: "React Native · Expo", years: "2y" },
+      { name: "Next.js", years: "3y" },
+      { name: "React", years: "3y" },
+      { name: "JS / HTML / CSS", years: "5y" },
+    ],
   },
   {
-    category: "DevOps & Tools",
-    icon: <Layers className="w-6 h-6" />,
-    skills: ["Docker", "GitLab", "YAML", "Nginx", "Git", "Signoz APM", "Agile (IceScrum)"],
+    heading: "Data / DevOps",
+    items: [
+      { name: "PostgreSQL", years: "4y" },
+      { name: "Redis", years: "3y" },
+      { name: "Oracle DB", years: "2y" },
+      { name: "Docker", years: "3y" },
+      { name: "GitLab CI / GH Actions", years: "3y" },
+      { name: "Signoz · Sentry", years: "2y" },
+    ],
   },
   {
-    category: "Frontend",
-    icon: <Layout className="w-6 h-6" />,
-    skills: ["Next.js", "React", "HTML", "JavaScript"],
-  },
-  {
-    category: "Web3 (Familiarity)",
-    icon: <Code className="w-6 h-6" />,
-    skills: ["Solidity", "Ethers.js", "Web3.js", "Smart Contracts"],
+    heading: "Concepts",
+    items: [
+      { name: "Microservice arch." },
+      { name: "JWT auth" },
+      { name: "Redis caching" },
+      { name: "Rate limiting" },
+      { name: "API gateway" },
+      { name: "Workflow orchestration" },
+      { name: "Elo rating" },
+    ],
   },
 ];
 
 export function Skills() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="text-primary">Skills</span>
-          </h2>
-          <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-foreground/80 max-w-2xl mx-auto">
-            I've worked with a variety of technologies and frameworks to create
-            stunning and functional applications. Here are some of my key skills
-            and areas of expertise.
-          </p>
-        </motion.div>
+    <section id="skills" className="border-b-2 border-ink py-[60px]">
+      <div className="wrap">
+        <SectionHead
+          num="§ 04 / Stack"
+          title={
+            <>
+              The toolkit,
+              <br />
+              annotated.
+            </>
+          }
+        />
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {skills.map((category, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              className="bg-background rounded-xl p-6 shadow-md border border-border/50 hover:border-primary/50 transition-colors group"
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-semibold">{category.category}</h3>
+        <div className="grain relative border-2 border-ink bg-paper px-6 py-7 shadow-riso-pink-lg md:px-10 md:py-9">
+          {/* blue triangle corner */}
+          <div
+            className="pointer-events-none absolute bg-blue"
+            style={{
+              top: "-1px",
+              right: "-1px",
+              width: "120px",
+              height: "120px",
+              clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+              mixBlendMode: "multiply",
+            }}
+          />
+          {/* corner label */}
+          <div
+            className="absolute z-[2] font-mono uppercase text-paper"
+            style={{
+              top: "32px",
+              right: "24px",
+              fontSize: "11px",
+              letterSpacing: "0.18em",
+              transform: "rotate(45deg)",
+              transformOrigin: "center",
+            }}
+          >
+            № 04
+          </div>
+
+          <h3
+            className="m-0 mb-1.5 font-display font-bold uppercase"
+            style={{ fontSize: "42px", letterSpacing: "-0.025em" }}
+          >
+            Things I&apos;ve used.
+          </h3>
+          <div
+            className="mb-7 font-mono uppercase text-ink-mute"
+            style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+          >
+            A printed inventory · Mumbai · MMXXVI
+          </div>
+
+          <div
+            className="grid grid-cols-2 md:grid-cols-4"
+            style={{ columnGap: "24px", rowGap: "18px" }}
+          >
+            {columns.map((col) => (
+              <div key={col.heading}>
+                <h4 className="m-0 mb-2.5 inline-block bg-ink px-2 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-paper">
+                  {col.heading}
+                </h4>
+                <ul className="m-0 list-none p-0">
+                  {col.items.map((item) => (
+                    <li
+                      key={item.name}
+                      className="flex items-baseline justify-between gap-2 py-1.5 font-display font-medium"
+                      style={{
+                        fontSize: "16px",
+                        borderBottom: "1.5px dashed rgba(24,22,20,0.35)",
+                      }}
+                    >
+                      <span>{item.name}</span>
+                      {item.years ? (
+                        <span
+                          className="bg-yellow font-mono text-ink-mute"
+                          style={{
+                            fontSize: "10.5px",
+                            padding: "1px 5px",
+                          }}
+                        >
+                          {item.years}
+                        </span>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="flex items-center">
-                    <div className="w-2 h-2 rounded-full bg-primary mr-2" />
-                    <span className="text-foreground/80">{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-} 
+}

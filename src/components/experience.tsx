@@ -1,108 +1,138 @@
-"use client";
+import { SectionHead } from "./section-head";
 
-import { motion } from "framer-motion";
-import { Briefcase, GraduationCap } from "lucide-react";
-import { cn } from "@/lib/utils";
+interface XPItem {
+  when: string;
+  role: string;
+  org: string;
+  body: React.ReactNode;
+  stack: string[];
+  shadow: "pink" | "blue";
+}
 
-const experiences = [
+const items: XPItem[] = [
   {
-    title: "Software Engineer",
-    company: "Profinch Solutions",
-    period: "Sep 2021 - Apr 2024",
-    description:
-      "Developed and maintained core backend microservices (Java, Spring Boot) for the Atumverse Studio low-code banking platform. Implemented new business process definitions (e.g. user/agent onboarding) within the central workflow-ms for platform event orchestration. Enhanced the partner-system-gateway-ms (PSG) by configuring routing rules and developing request/response transformation logic for inter-service communication. Designed standardized REST API models ensuring robust communication and seamless frontend integration across services. Implemented Signoz APM for proactive monitoring across microservices, identifying and resolving performance bottlenecks. Automated deployment pipelines (using YAML) for microservices and dependencies (Camunda, Solr, PostgreSQL, Nginx), improving consistency and reducing downtime. Containerized and deployed microservices using Docker for scalable and secure service delivery. Conducted rigorous testing to validate functionality, integration points, and critical workflow scenarios.",
-    type: "work",
+    when: "Apr 2024 — Present",
+    role: "Founder & Full-Stack Engineer",
+    org: "exam-duel.com · solo",
+    body: (
+      <>
+        Solo build of a real-time 1v1 CAT exam-prep app. Designed{" "}
+        <strong className="font-semibold text-ink">
+          Elo-based matchmaking
+        </strong>
+        , refactored the active-game lock into a two-phase state machine, and
+        stood up a two-layer Redis question pool that eliminates DB reads at
+        match time. Shipping iOS, Android &amp; web from one TypeScript
+        monorepo.
+      </>
+    ),
+    stack: [
+      "TypeScript",
+      "Node",
+      "Socket.IO",
+      "Postgres",
+      "Redis",
+      "RN / Expo",
+      "Firebase",
+    ],
+    shadow: "pink",
   },
   {
-    title: "B.Tech, Production Engineering",
-    company: "National Institute of Technology, Trichy",
-    period: "2017 - 2021",
-    description:
-      "Completed Bachelor of Technology degree in Production Engineering from one of India's premier technical institutions.",
-    type: "education",
+    when: "Sep 2021 — Apr 2024",
+    role: "Software Engineer",
+    org: "Profinch Solutions · Atumverse",
+    body: (
+      <>
+        Built and maintained{" "}
+        <strong className="font-semibold text-ink">
+          10+ Spring Boot microservices
+        </strong>{" "}
+        on a low-code banking platform. Designed Camunda workflow process
+        definitions, extended the Partner System Gateway with configurable
+        routing pipelines, deployed Signoz APM fleet-wide for distributed
+        tracing, and automated GitLab CI/CD for every service and dependency.
+      </>
+    ),
+    stack: [
+      "Java",
+      "Spring Boot",
+      "Camunda",
+      "Kafka",
+      "Postgres",
+      "Docker",
+      "GitLab CI",
+      "Signoz",
+    ],
+    shadow: "blue",
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="text-primary">Experience</span>
-          </h2>
-          <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-foreground/80 max-w-2xl mx-auto">
-            My professional journey and educational background that have shaped
-            my skills and expertise in web development and design.
-          </p>
-        </motion.div>
-
-        <div className="relative max-w-4xl mx-auto">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform md:translate-x-px" />
-
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={cn(
-                "relative mb-12 md:mb-8 md:w-1/2",
-                index % 2 === 0
-                  ? "md:pr-12 md:ml-auto"
-                  : "md:pl-12 md:mr-auto"
-              )}
-            >
-              <div
-                className={cn(
-                  "absolute top-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary",
-                  index % 2 === 0
-                    ? "right-0 md:-right-4 transform md:translate-x-px"
-                    : "left-0 md:-left-4 transform md:translate-x-px"
-                )}
-              >
-                {exp.type === "work" ? (
-                  <Briefcase className="w-4 h-4" />
-                ) : (
-                  <GraduationCap className="w-4 h-4" />
-                )}
-              </div>
-
-              <div
-                className={cn(
-                  "ml-12 md:ml-0 p-6 bg-background rounded-lg shadow-md border border-border/50 hover:border-primary/30 transition-colors",
-                  index % 2 === 0 ? "" : ""
-                )}
-              >
-                <span
-                  className={cn(
-                    "inline-block px-3 py-1 rounded-full text-xs font-medium mb-2",
-                    exp.type === "work"
-                      ? "bg-primary/10 text-primary"
-                      : "bg-accent/10 text-accent-foreground"
-                  )}
-                >
-                  {exp.period}
-                </span>
-                <h3 className="text-xl font-semibold">{exp.title}</h3>
-                <p className="text-foreground/70 font-medium mb-2">
-                  {exp.company}
-                </p>
-                <p className="text-foreground/80">{exp.description}</p>
-              </div>
-            </motion.div>
+    <section id="experience" className="border-b-2 border-ink py-[60px]">
+      <div className="wrap">
+        <SectionHead
+          num="§ 02 / Work"
+          title={
+            <>
+              A short
+              <br />
+              working history.
+            </>
+          }
+        />
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
+          {items.map((item, i) => (
+            <XPCard key={i} item={item} />
           ))}
         </div>
       </div>
     </section>
   );
-} 
+}
+
+function XPCard({ item }: { item: XPItem }) {
+  const shadowClass =
+    item.shadow === "pink" ? "shadow-riso-pink" : "shadow-riso-blue";
+  const orgColor = item.shadow === "pink" ? "text-blue" : "text-pink";
+  return (
+    <article
+      className={`relative border-2 border-ink bg-paper px-6 py-[22px] ${shadowClass}`}
+    >
+      <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-mute">
+        {item.when}
+      </div>
+      <h3
+        className="m-0 mb-1 font-display font-semibold"
+        style={{ fontSize: "28px", lineHeight: 1.1, letterSpacing: "-0.015em" }}
+      >
+        {item.role}
+      </h3>
+      <div
+        className={`mb-3 font-mono uppercase ${orgColor}`}
+        style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+      >
+        {item.org}
+      </div>
+      <p
+        className="m-0 mb-3 text-ink-soft"
+        style={{ fontSize: "14.5px", lineHeight: 1.65 }}
+      >
+        {item.body}
+      </p>
+      <div
+        className="mt-3 border-t border-dashed border-ink pt-2.5 font-mono text-[11px] text-ink-mute"
+        style={{ letterSpacing: "0.04em", borderTopWidth: "1.5px" }}
+      >
+        {item.stack.map((tag, i) => (
+          <span key={i}>
+            {tag}
+            {i < item.stack.length - 1 ? (
+              <span className="text-ink"> · </span>
+            ) : null}
+          </span>
+        ))}
+      </div>
+    </article>
+  );
+}

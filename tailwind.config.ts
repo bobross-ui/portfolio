@@ -6,83 +6,45 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ["class"],
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        paper: "#f1e8d3",
+        "paper-2": "#ebe1c6",
+        ink: "#181614",
+        "ink-soft": "#3a352e",
+        "ink-mute": "#6e6757",
+        pink: "#ff2e88",
+        blue: "#2a3aff",
+        yellow: "#f5cc00",
+        teal: "#00a99d",
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+      },
+      boxShadow: {
+        "riso-pink": "6px 6px 0 #ff2e88",
+        "riso-blue": "6px 6px 0 #2a3aff",
+        "riso-pink-lg": "8px 8px 0 #ff2e88",
+        "riso-blue-lg": "8px 8px 0 #2a3aff",
+        "riso-pink-sm": "3px 3px 0 #ff2e88",
+        "riso-blue-sm": "3px 3px 0 #2a3aff",
+        "riso-pink-xs": "2px 2px 0 #ff2e88",
+        "riso-blue-xs": "2px 2px 0 #2a3aff",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        marq: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        "gradient-x": {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
-        "float": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "pulse-slow": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+        risoPulse: {
+          "50%": { opacity: "0.3" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "gradient-x": "gradient-x 15s ease infinite",
-        "float": "float 6s ease-in-out infinite",
-        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
+        marq: "marq 60s linear infinite",
+        "riso-pulse": "risoPulse 1.4s infinite",
       },
     },
   },
