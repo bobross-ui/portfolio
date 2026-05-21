@@ -1,5 +1,4 @@
 import { AsciiCanvas } from "./ascii-canvas";
-import { Stamp } from "./stamp";
 
 export function Hero() {
   return (
@@ -7,23 +6,9 @@ export function Hero() {
       <div className="relative">
         <AsciiCanvas />
 
-        {/* hint top-left */}
-        <div className="pointer-events-none absolute left-[18px] top-[14px] font-mono text-[10.5px] uppercase tracking-[0.2em] text-pink/80">
-          ▸ move cursor · click for a ripple
-        </div>
-
-        {/* stamps top-right */}
-        <div
-          className="pointer-events-none absolute right-[18px] top-[14px] flex gap-2"
-          style={{ transform: "rotate(2deg)" }}
-        >
-          <Stamp variant="pink">v.04 / 2026</Stamp>
-          <Stamp variant="blue">riso ed.</Stamp>
-        </div>
-
         {/* big title bottom */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 grid items-end gap-4 p-6 md:gap-6 md:p-10"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-20 grid items-end gap-4 p-6 md:gap-6 md:p-10"
           style={{ gridTemplateColumns: "1fr auto" }}
         >
           <h1
