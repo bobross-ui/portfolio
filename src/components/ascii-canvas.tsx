@@ -47,8 +47,9 @@ function modeButtonClass({
       : "bg-blue text-paper shadow-riso-pink-sm";
 
   return [
-    "inline-flex items-center justify-center px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.18em]",
+    "inline-flex min-w-0 items-center justify-center overflow-hidden whitespace-nowrap px-2 py-1 font-mono text-[9px] font-medium uppercase tracking-[0.1em] md:px-3 md:text-[11px] md:tracking-[0.18em]",
     "transition",
+    "w-full md:w-auto",
     color,
     isActive ? "opacity-100" : "opacity-70 hover:opacity-100",
   ].join(" ");
@@ -313,7 +314,7 @@ export function AsciiCanvas() {
   }, []);
 
   return (
-    <div className="relative isolate pt-4">
+    <div className="relative isolate pt-24 md:pt-4">
       <div
         ref={hostRef}
         id="hero-canvas"
@@ -366,7 +367,7 @@ export function AsciiCanvas() {
       </div>
       <div
         aria-label="Select ASCII pattern"
-        className="absolute right-[18px] top-1 z-30 grid max-w-[calc(100%-36px)] grid-cols-2 gap-2 md:flex"
+        className="absolute left-[18px] top-10 z-30 grid w-[calc(100%-36px)] grid-cols-2 gap-1.5 md:left-auto md:right-[18px] md:top-1 md:flex md:w-auto md:max-w-[calc(100%-36px)] md:gap-2"
         onClick={(event) => event.stopPropagation()}
       >
         {MODES.map((item) => {
@@ -388,7 +389,7 @@ export function AsciiCanvas() {
           );
         })}
       </div>
-      <div className="pointer-events-none absolute left-[18px] top-1 z-30 inline-flex items-center justify-center bg-pink px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-paper shadow-riso-blue-sm">
+      <div className="pointer-events-none absolute left-[18px] top-1 z-30 inline-flex w-[calc(100%-36px)] items-center justify-center overflow-hidden whitespace-nowrap bg-pink px-2 py-1 font-mono text-[9px] font-medium uppercase tracking-[0.1em] text-paper shadow-riso-blue-sm md:w-auto md:px-3 md:text-[11px] md:tracking-[0.18em]">
         ▸ move cursor · click for a ripple
       </div>
     </div>
