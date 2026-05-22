@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kshitij Ghode — Riso Press",
+  title: "Kshitij Ghode",
   description:
     "Backend & distributed systems engineer based in Mumbai. Riso edition portfolio — 2-color + grain.",
   keywords: [

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#181614" />
+  <rect x="4" y="4" width="24" height="24" fill="#f1e8d3" />
+  <text
+    x="16"
+    y="21"
+    fill="#ff2e88"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="12"
+    font-weight="900"
+    text-anchor="middle"
+  >
+    KG
+  </text>
+  <text
+    x="15"
+    y="20"
+    fill="#2a3aff"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="12"
+    font-weight="900"
+    text-anchor="middle"
+  >
+    KG
+  </text>
+  <path d="M5 5h22v2H5zM5 25h22v2H5z" fill="#181614" opacity=".18" />
+</svg>
